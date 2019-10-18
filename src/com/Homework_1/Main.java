@@ -1,4 +1,4 @@
-package com.company;
+package com.Homework_1;
 
 import java.util.InputMismatchException;
 import java.util.Random;
@@ -19,7 +19,7 @@ public class Main {
     }
 
     private static void finishGame() {
-        System.out.println("Congratulation, " + name);
+        System.out.println("Congratulation, " + name + "!");
         System.out.print("Your numbers are: ");
         SortArray.print();
     }
