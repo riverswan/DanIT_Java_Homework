@@ -80,6 +80,9 @@ public class Main {
         }
         field[targetY][targetX] = "| * ";
     }
+    private static void finishGame(){
+        System.out.println("You have won!");
+    }
 
     private static void startGame() {
         generateTarget();
@@ -89,6 +92,7 @@ public class Main {
             askForInputValues();
             drawRect();
         }
+        finishGame();
     }
 
     public static void main(String[] args) {
