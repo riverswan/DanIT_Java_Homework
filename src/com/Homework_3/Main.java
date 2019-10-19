@@ -36,6 +36,10 @@ public class Main {
         while (!exitStatus) {
             System.out.print("Please, input the day of the week:");
             String inputValue = in.nextLine().toLowerCase().strip();
+            if (inputValue.contains("change")) {
+                changeTask(inputValue);
+                continue;
+            }
             processInput(inputValue);
         }
     }
@@ -47,35 +51,35 @@ public class Main {
             return;
         }
 
+
         for (String[] item : schedule) {
             String day = item[0];
             String task = item[1];
-            boolean doesInputContainsChange = inputValue.contains("change") || inputValue.contains("reschedule");
             boolean isDayFound = day.toLowerCase().equals(inputValue);
-            //check
 
-            if (doesInputContainsChange && isDayFound){
-                System.out.println("time to change");
-            }
             if (isDayFound) {
                 System.out.printf("Your task for %s is : %s \n", day, task);
                 return;
             }
-
-
         }
-
-//        if (inputValue.contains("change") || inputValue.contains("reschedule")){
-//            System.out.printf("Please, input new tasks for Monday.");
-//
-//            return;
-//        }
-
         System.out.println("Sorry, I don't understand you, please try again.");
-
     }
-    private static void changeTask(int dayIndex,String text){
-        schedule[dayIndex][1] = text;
+
+
+    private static void changeTask(String inputValue) {
+        String day = inputValue.substring(6).strip();
+
+        for (String[] item : schedule) {
+            boolean isDayFound = day.equals(item[0].toLowerCase());
+
+            if (isDayFound) {
+                Scanner input = new Scanner(System.in);
+                System.out.printf("Please, input new tasks for Monday");
+                item[1] = input.nextLine();
+                return;
+            }
+        }
+        System.out.println("Sorry, I don't understand you, please try again.");
     }
 
 
