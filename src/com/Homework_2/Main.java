@@ -84,6 +84,7 @@ public class Main {
         System.out.println("You have won!");
     }
 
+
     private static void startGame() {
         generateTarget();
         initField();
