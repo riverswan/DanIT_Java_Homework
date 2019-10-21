@@ -68,13 +68,14 @@ public class Main {
 
     private static void changeTask(String inputValue) {
         String day = inputValue.substring(6).strip();
+        String dayUppercase = day.substring(0, 1).toUpperCase() + day.substring(1);
 
         for (String[] item : schedule) {
             boolean isDayFound = day.equals(item[0].toLowerCase());
 
             if (isDayFound) {
                 Scanner input = new Scanner(System.in);
-                System.out.printf("Please, input new tasks for Monday");
+                System.out.printf("Please, input new tasks for %s: ", dayUppercase);
                 item[1] = input.nextLine();
                 return;
             }
