@@ -42,7 +42,7 @@ public class Human {
         this.father = father;
     }
 
-    public Human(String name, String surname, int year, int iq, Pet pet, Human mother, Human father, String[]... schedule) {
+    public Human(String name, String surname, int year, int iq, Pet pet, Human mother, Human father) {
         this.name = name;
         this.surname = surname;
         this.year = year;
@@ -50,7 +50,6 @@ public class Human {
         this.pet = pet;
         this.mother = mother;
         this.father = father;
-        this.schedule = schedule;
     }
 
     public void greetPet() {
@@ -59,7 +58,7 @@ public class Human {
 
     public void describePet() {
         String trickLevel = pet.trickLevel > 50 ? "очень хитрый" : "почти не хитрый";
-        System.out.printf("У меня есть %s, ему %d лет, он %s", pet.species, pet.age, trickLevel);
+        System.out.printf("У меня есть %s, ему %d лет, он %s \n", pet.species, pet.age, trickLevel);
     }
 
     @Override
