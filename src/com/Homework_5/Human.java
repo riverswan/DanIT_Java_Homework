@@ -5,9 +5,13 @@ public class Human {
     private String surname;
     private int year;
     private int iq;
-    private Pet pet;
-    private Human mother;
-    private Human father;
+    private Family family;
+
+    public Family getFamily() {
+        return family;
+    }
+
+
     private String[][] schedule;
 
     public String getName() {
@@ -42,29 +46,6 @@ public class Human {
         this.iq = iq;
     }
 
-    public Pet getPet() {
-        return pet;
-    }
-
-    public void setPet(Pet pet) {
-        this.pet = pet;
-    }
-
-    public Human getMother() {
-        return mother;
-    }
-
-    public void setMother(Human mother) {
-        this.mother = mother;
-    }
-
-    public Human getFather() {
-        return father;
-    }
-
-    public void setFather(Human father) {
-        this.father = father;
-    }
 
     public String[][] getSchedule() {
         return schedule;
@@ -79,10 +60,8 @@ public class Human {
         surname = "";
         year = -1;
         iq = -1;
-        pet = null;
-        mother = null;
-        father = null;
         schedule = new String[0][];
+        family = null;
     }
 
     public Human(String name, String surname, int year) {
@@ -91,38 +70,31 @@ public class Human {
         this.year = year;
     }
 
-    public Human(String name, String surname, int year, Human mother, Human father) {
-        this.name = name;
-        this.surname = surname;
-        this.year = year;
-        this.mother = mother;
-        this.father = father;
-    }
-
-    public Human(String name, String surname, int year, int iq, Pet pet, Human mother, Human father) {
+    public Human(String name, String surname, int year, int iq) {
         this.name = name;
         this.surname = surname;
         this.year = year;
         this.iq = iq;
-        this.pet = pet;
-        this.mother = mother;
-        this.father = father;
     }
 
     public void greetPet() {
-        System.out.printf("Привет, %s \n", pet.getNickname());
+        System.out.printf("Привет, %s \n", family.getPet().getNickname());
     }
 
     public void describePet() {
-        String trickLevel = pet.getTrickLevel() > 50 ? "очень хитрый" : "почти не хитрый";
-        System.out.printf("У меня есть %s, ему %d лет, он %s \n", pet.getSpecies(), pet.getAge(), trickLevel);
+        String trickLevel = family.getPet().getTrickLevel() > 50 ? "очень хитрый" : "почти не хитрый";
+        System.out.printf("У меня есть %s, ему %d лет, он %s \n", family.getPet().getSpecies(), family.getPet().getAge(), trickLevel);
     }
 
     @Override
     public String toString() {
         String info = String.format("Human{name='%s', surname='%s', year=%d, mother=%s %s, father = %s %s pet=%s}",
-                name, surname, year, mother.name, mother.surname, father.name, father.surname, pet.toString());
+                name, surname, year, family.getMother().name, family.getMother().surname, family.getFather().name, family.getFather().surname, family.getPet().toString());
         System.out.println(info);
         return info;
+    }
+
+    public void setFamily(Family family) {
+        this.family = family;
     }
 }

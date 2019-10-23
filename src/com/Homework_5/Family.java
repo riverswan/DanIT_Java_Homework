@@ -12,31 +12,24 @@ public class Family {
         this.mother = mother;
         this.father = father;
         children = new Human[0];
+        this.mother.setFamily(Family.this);
+        this.father.setFamily(Family.this);
     }
 
     public Human getMother() {
         return mother;
     }
 
-    public void setMother(Human mother) {
-        this.mother = mother;
-    }
 
     public Human getFather() {
         return father;
     }
 
-    public void setFather(Human father) {
-        this.father = father;
-    }
 
     public Human[] getChildren() {
         return children;
     }
 
-    public void setChildren(Human[] children) {
-        this.children = children;
-    }
 
     public Pet getPet() {
         return pet;
