@@ -11,9 +11,9 @@ public class Family {
     public Family(Human mother, Human father) {
         this.mother = mother;
         this.father = father;
-        children = new Human[0];
         this.mother.setFamily(Family.this);
         this.father.setFamily(Family.this);
+        children = new Human[0];
     }
 
     public Human getMother() {
@@ -40,17 +40,22 @@ public class Family {
     }
 
     public void addChild(Human child) {
-
+        children = ChildArray.addChild(children, child);
     }
 
-    public boolean deleteChild(int index) {
-        return false;
+    public void deleteChild(int index) {
+        children = ChildArray.deleteChild(children, index);
+    }
+
+    public int countFamily() {
+        return 2 + children.length;
     }
 
     @Override
     public String toString() {
-        String info = String.format("Mother:%s, father:%s, children=%s, pet=%s",
+        String info = String.format("Mother:%s,\nfather:%s,\nchildren:%s,\npet:%s",
                 mother.toString(), father.toString(), Arrays.toString(children), pet.toString());
+
         System.out.println(info);
         return info;
     }

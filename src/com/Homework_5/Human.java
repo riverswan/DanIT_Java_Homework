@@ -88,10 +88,7 @@ public class Human {
 
     @Override
     public String toString() {
-        String info = String.format("Human{name='%s', surname='%s', year=%d, mother=%s %s, father = %s %s pet=%s}",
-                name, surname, year, family.getMother().name, family.getMother().surname, family.getFather().name, family.getFather().surname, family.getPet().toString());
-        System.out.println(info);
-        return info;
+        return String.format("Human{name='%s', surname='%s', year=%d}", name, surname, year);
     }
 
     public void setFamily(Family family) {
