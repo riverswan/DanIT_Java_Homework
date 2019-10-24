@@ -39,6 +39,14 @@ public class Family {
         this.pet = pet;
     }
 
+    public void addChild(Human child) {
+
+    }
+
+    public boolean deleteChild(int index) {
+        return false;
+    }
+
     @Override
     public String toString() {
         String info = String.format("Mother:%s, father:%s, children=%s, pet=%s",
