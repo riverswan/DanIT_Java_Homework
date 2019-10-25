@@ -1,4 +1,4 @@
-package com.Homework_5;
+package com.homework_5;
 
 public class Human {
     private String name;
@@ -86,12 +86,19 @@ public class Human {
         System.out.printf("У меня есть %s, ему %d лет, он %s \n", family.getPet().getSpecies(), family.getPet().getAge(), trickLevel);
     }
 
+    public void setFamily(Family family) {
+        this.family = family;
+    }
+
+
     @Override
     public String toString() {
         return String.format("Human{name='%s', surname='%s', year=%d}", name, surname, year);
     }
 
-    public void setFamily(Family family) {
-        this.family = family;
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }

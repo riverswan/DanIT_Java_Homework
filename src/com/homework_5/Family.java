@@ -1,6 +1,7 @@
-package com.Homework_5;
+package com.homework_5;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Family {
     private Human mother;
@@ -13,6 +14,7 @@ public class Family {
         this.father = father;
         this.mother.setFamily(Family.this);
         this.father.setFamily(Family.this);
+        pet = null;
         children = new Human[0];
     }
 
@@ -40,6 +42,7 @@ public class Family {
     }
 
     public void addChild(Human child) {
+        child.setFamily(Family.this);
         children = ChildArray.addChild(children, child);
     }
 
@@ -48,15 +51,18 @@ public class Family {
     }
 
     public int countFamily() {
-        return 2 + children.length;
+        int petCount = pet != null ? 1 : 0;
+        return 2 + children.length + petCount;
     }
 
     @Override
     public String toString() {
-        String info = String.format("Mother:%s,\nfather:%s,\nchildren:%s,\npet:%s",
-                mother.toString(), father.toString(), Arrays.toString(children), pet.toString());
+        String info = String.format("Mother:%s,\nFather:%s,\nChildren:%s,\nPet:%s",
+                Objects.toString(mother), Objects.toString(father), Arrays.toString(children), Objects.toString(pet));
 
         System.out.println(info);
         return info;
     }
+
+
 }

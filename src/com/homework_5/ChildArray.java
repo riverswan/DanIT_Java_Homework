@@ -1,4 +1,4 @@
-package com.Homework_5;
+package com.homework_5;
 
 public class ChildArray {
 
