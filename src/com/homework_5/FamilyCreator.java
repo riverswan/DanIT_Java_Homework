@@ -4,6 +4,7 @@ public class FamilyCreator {
     public static void main(String[] args) {
 
         Human father = new Human("Father", "Father surname", 1970);
+        Human father2 = new Human("Not", "Father surname", 1970);
         Human mother = new Human("Mother", "Mother surname", 1970);
         Pet pet = new Pet("dog", "Jack", 2, 75, "eat", "sleep");
         Human son1 = new Human("Son 1", "Son surname", 2000, 100);

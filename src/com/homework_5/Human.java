@@ -99,6 +99,17 @@ public class Human {
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        Human human = (Human) obj;
+        if (this == obj) return true;
+        return name.equals(human.getName()) && surname.equals(human.getSurname()) && year == human.getYear();
+    }
+
+    @Override
+    public int hashCode() {
+        int code = 11;
+        int k = 7;
+        code = k * code + 31;
+        code = k * code + surname.hashCode();
+        return code;
     }
 }
