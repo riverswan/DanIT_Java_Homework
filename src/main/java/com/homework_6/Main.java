@@ -14,5 +14,8 @@ public class Main {
 //        for (int i = 0; i < 10000000 ; i++) {
 //            new Human("Name", "Surname",1980);
 //        }
+
+
+
     }
 }
