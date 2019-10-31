@@ -19,8 +19,7 @@ public class Pet {
     }
 
     public Pet(Species species, String nickname, int age, int trickLevel, String... habits) {
-        this.species = species;
-        this.nickname = nickname;
+        this(species, nickname);
         this.age = age;
         this.trickLevel = trickLevel;
         this.habits = habits;
@@ -35,40 +34,41 @@ public class Pet {
         return species;
     }
 
-    public void setSpecies(Species species) {
-        this.species = species;
+    public Species setSpecies(Species species) {
+        return this.species = species;
     }
 
     public String getNickname() {
         return nickname;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public String setNickname(String nickname) {
+        return this.nickname = nickname;
+
     }
 
     public int getAge() {
         return age;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public int setAge(int age) {
+        return this.age = age;
     }
 
     public int getTrickLevel() {
         return trickLevel;
     }
 
-    public void setTrickLevel(int trickLevel) {
-        this.trickLevel = trickLevel;
+    public int setTrickLevel(int trickLevel) {
+        return this.trickLevel = trickLevel;
     }
 
     public String[] getHabits() {
         return habits;
     }
 
-    public void setHabits(String... habits) {
-        this.habits = habits;
+    public String[] setHabits(String... habits) {
+        return this.habits = habits;
     }
 
 

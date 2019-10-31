@@ -27,9 +27,7 @@ public class Human {
     }
 
     public Human(String name, String surname, int year, int iq) {
-        this.name = name;
-        this.surname = surname;
-        this.year = year;
+        this(name, surname, year);
         this.iq = iq;
     }
 
@@ -74,32 +72,36 @@ public class Human {
         return name;
     }
 
-    public void setName(String name) {
+    public String setName(String name) {
         this.name = name;
+        return this.name;
     }
 
     public String getSurname() {
         return surname;
     }
 
-    public void setSurname(String surname) {
+    public String setSurname(String surname) {
         this.surname = surname;
+        return this.surname;
     }
 
     public int getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    public int setYear(int year) {
         this.year = year;
+        return this.year;
     }
 
     public int getIq() {
         return iq;
     }
 
-    public void setIq(int iq) {
+    public int setIq(int iq) {
         this.iq = iq;
+        return this.iq;
     }
 
 
@@ -107,7 +109,7 @@ public class Human {
         return schedule;
     }
 
-    public void setSchedule(dayOfWeek day, String todo) {
+    public String[][] setSchedule(dayOfWeek day, String todo) {
         int index;
         switch (day) {
             case SUNDAY:
@@ -140,6 +142,8 @@ public class Human {
         } catch (Exception e) {
             System.out.println("You've entered wrong day");
         }
+
+        return schedule;
     }
 
 
@@ -147,13 +151,16 @@ public class Human {
         System.out.printf("Привет, %s \n", family.getPet().getNickname());
     }
 
-    public void describePet() {
+    public String describePet() {
         String trickLevel = family.getPet().getTrickLevel() > 50 ? "очень хитрый" : "почти не хитрый";
-        System.out.printf("У меня есть %s, ему %d лет, он %s \n", family.getPet().getSpecies(), family.getPet().getAge(), trickLevel);
+        String description = String.format("У меня есть %s, ему %d лет, он %s ", family.getPet().getSpecies(), family.getPet().getAge(), trickLevel);
+        System.out.println(description);
+        return description;
     }
 
-    public void setFamily(Family family) {
+    public Family setFamily(Family family) {
         this.family = family;
+        return this.family;
     }
 
 
