@@ -92,7 +92,6 @@ public class Pet {
 
     @Override
     protected void finalize() throws Throwable {
-        info = String.format("%s{nickname='%s', age=%d, trickLevel=%d, habits=%s}", species, nickname, age, trickLevel, Arrays.toString(habits));
-        System.out.printf("Pet object is deleted: %s \n", info);
+        System.out.printf("Pet object is deleted: %s \n", this.toString());
     }
 }

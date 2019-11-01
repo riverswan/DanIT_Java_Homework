@@ -189,7 +189,6 @@ public class Human {
 
     @Override
     protected void finalize() throws Throwable {
-        info = String.format("Human{name='%s', surname='%s', year=%d}", name, surname, year);
-        System.out.printf("Human object is deleted: %s \n", info);
+        System.out.printf("Human object is deleted: %s \n", this.toString());
     }
 }
