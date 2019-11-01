@@ -15,7 +15,5 @@ public class Main {
 //            new Human("Name", "Surname",1980);
 //        }
 
-
-
     }
 }
