@@ -45,13 +45,13 @@ public class Family {
         this.pet = pet;
     }
 
-    public void addChild(Human child) {
+    public Human[] addChild(Human child) {
         child.setFamily(Family.this);
-        children = ChildArray.addChild(children, child);
+        return children = ChildArray.addChild(children, child);
     }
 
-    public void deleteChild(int index) {
-        children = ChildArray.deleteChild(children, index);
+    public Human[] deleteChild(int index) {
+        return children = ChildArray.deleteChild(children, index);
     }
 
     public int countFamily() {

@@ -1,7 +1,5 @@
 package com.homework_6;
 
-import java.util.Arrays;
-
 public class Human {
     private String name;
     private String surname;

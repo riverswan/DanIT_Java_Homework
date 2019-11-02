@@ -2,7 +2,10 @@ package com.homework_6;
 
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
+
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
@@ -31,5 +34,10 @@ class PetTest {
     @ValueSource(strings = {"Dog"})
     void checkForSpecies(String string) {
         assumeTrue(new Pet(Species.DOG, "Pet").getSpecies().name().equalsIgnoreCase(string));
+    }
+
+    @Test
+    void checkSpeciesForNull() {
+        assertNull(new Pet().getSpecies());
     }
 }
