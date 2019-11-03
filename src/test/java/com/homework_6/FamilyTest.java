@@ -32,9 +32,9 @@ class FamilyTest {
     @Test
     @Order(1)
     void deleteChild() {
-        assertEquals(3, family.getChildren().length);
+        assertEquals(4, family.getChildren().length);
         family.deleteChild(1);
-        assertEquals(2, family.getChildren().length);
+        assertEquals(3, family.getChildren().length);
     }
 
     @Test
