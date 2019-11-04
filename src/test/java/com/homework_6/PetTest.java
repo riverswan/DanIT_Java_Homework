@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 @DisplayName("Testing of Pet class")
-class PetTest {
+public class PetTest {
     private final Pet petEmpty = new Pet();
 
     @Test

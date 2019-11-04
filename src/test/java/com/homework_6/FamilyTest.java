@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class FamilyTest {
+public class FamilyTest {
     private static Family family;
     private static Human mother;
     private static Human father;
