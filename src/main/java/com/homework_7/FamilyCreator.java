@@ -5,7 +5,7 @@ public class FamilyCreator {
 
         Human father = new Human("Father", "Father surname", 1970);
         Human mother = new Human("Mother", "Mother surname", 1970);
-        Pet pet = new Pet(Species.DOG, "Jack", 2, 75, "eat", "sleep");
+//        Pet pet = new Pet(Species.DOG, "Jack", 2, 75, "eat", "sleep");
         Human son1 = new Human("Son 1", "Son surname", 2000, 100);
         Human son2 = new Human("Son 2", "Son surname", 2000, 100);
         Human son3 = new Human("Son 3", "Son surname", 2000, 100);
@@ -21,7 +21,7 @@ public class FamilyCreator {
         family1.deleteChild(3);
         family1.deleteChild(2);
 
-        family1.setPet(pet);
+//        family1.setPet(pet);
         System.out.println(family1.countFamily());
 
         family1.toString();

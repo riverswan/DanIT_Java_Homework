@@ -2,21 +2,13 @@ package com.homework_7;
 
 import java.util.Arrays;
 
-public abstract class Pet {
+abstract class Pet {
     private Species species;
     private String nickname;
     private int age;
     private int trickLevel;
     private String[] habits;
     private String info;
-
-    Pet() {
-        species = null;
-        nickname = "";
-        age = -1;
-        trickLevel = -1;
-        habits = new String[0];
-    }
 
     public Pet(Species species, String nickname, int age, int trickLevel, String... habits) {
         this(species, nickname);
@@ -76,13 +68,8 @@ public abstract class Pet {
         System.out.println("Я кушаю!");
     }
 
-    public void respond() {
-        System.out.printf("Привет, хозяин. Я - %s. Я соскучился! \n", nickname);
-    }
+    public abstract void respond();
 
-    public void foul() {
-
-    }
 
     @Override
     public String toString() {
