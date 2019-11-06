@@ -10,14 +10,14 @@ abstract class Pet {
     private String[] habits;
     private String info;
 
-    public Pet(String nickname, int age, int trickLevel, String... habits) {
+    Pet(String nickname, int age, int trickLevel, String... habits) {
         this(nickname);
         this.age = age;
         this.trickLevel = trickLevel;
         this.habits = habits;
     }
 
-    public Pet(String nickname) {
+    Pet(String nickname) {
         this.nickname = nickname;
         this.species = Species.UNKNOWN;
     }

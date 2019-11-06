@@ -3,14 +3,14 @@ package com.homework_7;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Family {
+class Family {
     private Human mother;
     private Human father;
     private Human[] children;
     private Pet pet;
     private String info;
 
-    public Family(Human mother, Human father) {
+    Family(Human mother, Human father) {
         this.mother = mother;
         this.father = father;
         this.mother.setFamily(Family.this);

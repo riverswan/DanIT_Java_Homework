@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class FamilyTest {
+class FamilyTest {
     private static Family family;
     private static Human mother;
     private static Human father;
@@ -30,7 +30,6 @@ public class FamilyTest {
     }
 
     @Test
-    @Order(1)
     void deleteChild() {
         assertEquals(4, family.getChildren().length);
         family.deleteChild(1);
@@ -44,7 +43,6 @@ public class FamilyTest {
 
 
     @Test
-    @Order(2)
     void addChild() {
         int previOusLength = family.getChildren().length;
         family.addChild(son4);
@@ -52,7 +50,6 @@ public class FamilyTest {
     }
 
     @Test
-    @Order(3)
     void countFamily() {
         assertEquals(5, family.countFamily());
     }

@@ -1,6 +1,6 @@
 package com.homework_6;
 
-public class Human {
+class Human {
     private String name;
     private String surname;
     private int year;
@@ -18,13 +18,13 @@ public class Human {
         family = null;
     }
 
-    public Human(String name, String surname, int year) {
+    Human(String name, String surname, int year) {
         this.name = name;
         this.surname = surname;
         this.year = year;
     }
 
-    public Human(String name, String surname, int year, int iq) {
+    Human(String name, String surname, int year, int iq) {
         this(name, surname, year);
         this.iq = iq;
     }

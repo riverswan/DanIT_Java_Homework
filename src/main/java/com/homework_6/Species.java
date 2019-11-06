@@ -1,6 +1,6 @@
 package com.homework_6;
 
-public enum Species {
+enum Species {
     DOG,
     CAT,
     RABBIT,

@@ -1,6 +1,5 @@
 package com.homework_6;
-
-public enum dayOfWeek {
+enum dayOfWeek {
     SUNDAY,
     MONDAY,
     TUESDAY,

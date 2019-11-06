@@ -20,6 +20,5 @@ public class Main {
         DomesticCat domesticCat = new DomesticCat("DomesticCat", 1, 78, "eat", "sleep");
         domesticCat.foul();
         domesticCat.respond();
-
     }
 }

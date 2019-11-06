@@ -2,7 +2,7 @@ package com.homework_6;
 
 import java.util.Arrays;
 
-public class Pet {
+class Pet {
     private Species species;
     private String nickname;
     private int age;
@@ -18,14 +18,14 @@ public class Pet {
         habits = new String[0];
     }
 
-    public Pet(Species species, String nickname, int age, int trickLevel, String... habits) {
+    Pet(Species species, String nickname, int age, int trickLevel, String... habits) {
         this(species, nickname);
         this.age = age;
         this.trickLevel = trickLevel;
         this.habits = habits;
     }
 
-    public Pet(Species species, String nickname) {
+    Pet(Species species, String nickname) {
         this.species = species;
         this.nickname = nickname;
     }
