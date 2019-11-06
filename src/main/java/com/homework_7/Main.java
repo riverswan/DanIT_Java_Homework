@@ -2,7 +2,7 @@ package com.homework_7;
 
 import java.util.Arrays;
 
-public class Main {
+class Main {
     public static void main(String[] args) {
         Dog dog = new Dog("dog", 1, 78, "eat", "sleep");
         dog.foul();
@@ -20,5 +20,19 @@ public class Main {
         DomesticCat domesticCat = new DomesticCat("DomesticCat", 1, 78, "eat", "sleep");
         domesticCat.foul();
         domesticCat.respond();
+
+
+        Man man = new Man("Man", "Man surname", 1970);
+        man.greetPet();
+
+        Woman woman = new Woman("Woman", "Man surname", 1970);
+        woman.greetPet();
+
+        Family family = new Family(woman, man);
+        family.setPet(dog);
+        man.greetPet();
+        woman.greetPet();
+        man.repairCar();
+        woman.makeUp();
     }
 }

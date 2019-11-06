@@ -22,39 +22,39 @@ class Family {
 
     }
 
-    public Human getMother() {
+    Human getMother() {
         return mother;
     }
 
 
-    public Human getFather() {
+    Human getFather() {
         return father;
     }
 
 
-    public Human[] getChildren() {
+    Human[] getChildren() {
         return children;
     }
 
 
-    public Pet getPet() {
+    Pet getPet() {
         return pet;
     }
 
-    public void setPet(Pet pet) {
+    void setPet(Pet pet) {
         this.pet = pet;
     }
 
-    public Human[] addChild(Human child) {
+    Human[] addChild(Human child) {
         child.setFamily(Family.this);
         return children = ChildArray.addChild(children, child);
     }
 
-    public Human[] deleteChild(int index) {
+    Human[] deleteChild(int index) {
         return children = ChildArray.deleteChild(children, index);
     }
 
-    public int countFamily() {
+    int countFamily() {
         int petCount = pet != null ? 1 : 0;
         return 2 + children.length + petCount;
     }
@@ -65,6 +65,7 @@ class Family {
         System.out.println(info);
         return info;
     }
+
 
     @Override
     protected void finalize() throws Throwable {

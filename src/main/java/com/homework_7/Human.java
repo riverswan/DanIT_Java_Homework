@@ -8,6 +8,7 @@ class Human {
     private Family family;
     private String info;
     private String[][] schedule = initSchedule();
+    private Pet pet = null;
 
     Human() {
         name = "";
@@ -61,53 +62,54 @@ class Human {
         return schedule;
     }
 
-    public Family getFamily() {
+    Family getFamily() {
         return family;
     }
 
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    public String setName(String name) {
+
+    String setName(String name) {
         this.name = name;
         return this.name;
     }
 
-    public String getSurname() {
+    String getSurname() {
         return surname;
     }
 
-    public String setSurname(String surname) {
+    String setSurname(String surname) {
         this.surname = surname;
         return this.surname;
     }
 
-    public int getYear() {
+    int getYear() {
         return year;
     }
 
-    public int setYear(int year) {
+    int setYear(int year) {
         this.year = year;
         return this.year;
     }
 
-    public int getIq() {
+    int getIq() {
         return iq;
     }
 
-    public int setIq(int iq) {
+    int setIq(int iq) {
         this.iq = iq;
         return this.iq;
     }
 
 
-    public String[][] getSchedule() {
+    String[][] getSchedule() {
         return schedule;
     }
 
-    public String[][] setSchedule(dayOfWeek day, String todo) {
+    String[][] setSchedule(dayOfWeek day, String todo) {
         int index;
         switch (day) {
             case SUNDAY:
@@ -145,18 +147,19 @@ class Human {
     }
 
 
-    public void greetPet() {
+    void greetPet() {
         System.out.printf("Привет, %s \n", family.getPet().getNickname());
     }
 
-    public String describePet() {
+
+    String describePet() {
         String trickLevel = family.getPet().getTrickLevel() > 50 ? "очень хитрый" : "почти не хитрый";
         String description = String.format("У меня есть %s, ему %d лет, он %s ", family.getPet().getSpecies(), family.getPet().getAge(), trickLevel);
         System.out.println(description);
         return description;
     }
 
-    public Family setFamily(Family family) {
+    Family setFamily(Family family) {
         this.family = family;
         return this.family;
     }

@@ -1,7 +1,7 @@
 package com.homework_7;
 
 class FamilyCreator {
-    void createFamily() {
+    public void createFamily() {
 
         Human father = new Human("Father", "Father surname", 1970);
         Human mother = new Human("Mother", "Mother surname", 1970);

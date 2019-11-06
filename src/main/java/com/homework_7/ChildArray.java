@@ -1,6 +1,6 @@
 package com.homework_7;
 
-class ChildArray {
+ class ChildArray {
 
     static Human[] addChild(Human[] children, Human child) {
         Human[] newArray = new Human[children.length + 1];

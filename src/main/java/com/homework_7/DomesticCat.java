@@ -7,7 +7,7 @@ class DomesticCat extends Pet implements Animal {
     }
 
     @Override
-    public void respond() {
+    void respond() {
         System.out.printf("Привет, хозяин. Я - %s. Я соскучился! \n", super.getNickname());
     }
 

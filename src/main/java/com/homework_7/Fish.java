@@ -7,7 +7,7 @@ class Fish extends Pet implements Animal {
     }
 
     @Override
-    public void respond() {
+    void respond() {
         System.out.println("Fish don't talk");
     }
 
