@@ -1,5 +1,5 @@
 package com.homework_7;
 
-interface Animal {
+interface Foulable {
     default void foul(){};
 }

@@ -34,30 +34,30 @@ class Human {
     private String[][] initSchedule() {
         schedule = new String[7][2];
 
-        schedule[0][0] = dayOfWeek.SUNDAY.name();
+        schedule[0][0] = DayOfWeek.SUNDAY.name();
         schedule[0][1] = "";
 
-        schedule[1][0] = dayOfWeek.MONDAY.name();
+        schedule[1][0] = DayOfWeek.MONDAY.name();
         schedule[1][1] = "";
 
 
-        schedule[2][0] = dayOfWeek.TUESDAY.name();
+        schedule[2][0] = DayOfWeek.TUESDAY.name();
         schedule[2][1] = "";
 
 
-        schedule[3][0] = dayOfWeek.WEDNESDAY.name();
+        schedule[3][0] = DayOfWeek.WEDNESDAY.name();
         schedule[3][1] = "";
 
 
-        schedule[4][0] = dayOfWeek.THURSDAY.name();
+        schedule[4][0] = DayOfWeek.THURSDAY.name();
         schedule[4][1] = "";
 
 
-        schedule[5][0] = dayOfWeek.FRIDAY.name();
+        schedule[5][0] = DayOfWeek.FRIDAY.name();
         schedule[5][1] = "";
 
 
-        schedule[6][0] = dayOfWeek.SATURDAY.name();
+        schedule[6][0] = DayOfWeek.SATURDAY.name();
         schedule[6][1] = "";
         return schedule;
     }
@@ -109,7 +109,7 @@ class Human {
         return schedule;
     }
 
-    String[][] setSchedule(dayOfWeek day, String todo) {
+    String[][] setSchedule(DayOfWeek day, String todo) {
         int index;
         switch (day) {
             case SUNDAY:

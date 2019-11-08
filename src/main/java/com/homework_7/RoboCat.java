@@ -1,9 +1,9 @@
 package com.homework_7;
 
- class RoboCat extends Pet implements Animal {
+ class RoboCat extends Pet implements Foulable {
     RoboCat(String nickname, int age, int trickLevel, String... habits) {
         super(nickname, age, trickLevel, habits);
-        setSpecies(Species.ROBOCAT);
+        setSpecies(Species.ROBO_CAT);
     }
 
     @Override

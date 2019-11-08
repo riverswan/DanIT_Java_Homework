@@ -1,9 +1,9 @@
 package com.homework_7;
 
-class DomesticCat extends Pet implements Animal {
+class DomesticCat extends Pet implements Foulable {
     DomesticCat(String nickname, int age, int trickLevel, String... habits) {
         super(nickname, age, trickLevel, habits);
-        setSpecies(Species.DOMESTICCAT);
+        setSpecies(Species.DOMESTIC_CAT);
     }
 
     @Override

@@ -3,7 +3,7 @@ package com.homework_7;
  enum Species {
     DOG,
     FISH,
-    ROBOCAT,
-    DOMESTICCAT,
+    ROBO_CAT,
+    DOMESTIC_CAT,
     UNKNOWN
 }
