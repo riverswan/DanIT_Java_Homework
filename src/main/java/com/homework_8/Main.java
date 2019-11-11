@@ -2,7 +2,7 @@ package com.homework_8;
 
 class Main {
     public static void main(String[] args) {
-        Dog dog = new Dog("dog", 1, 78, "eat", "sleep");
+        Dog dog = new Dog("Dog", 1, 78, "eat", "sleep");
         dog.foul();
         dog.respond();
 
@@ -28,6 +28,7 @@ class Main {
 
         Family family = new Family(woman, man);
         family.setPet(dog);
+        family.setPet(fish);
         man.greetPet();
         woman.greetPet();
         man.repairCar();

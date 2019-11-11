@@ -1,5 +1,8 @@
 package com.homework_8;
 
+import java.util.HashMap;
+import java.util.Map;
+
 class Human {
     private String name;
     private String surname;
@@ -7,15 +10,14 @@ class Human {
     private int iq;
     private Family family;
     private String info;
-    private String[][] schedule = initSchedule();
-    private Pet pet = null;
+    private Map<String, String> schedule = initSchedule();
 
     Human() {
         name = "";
         surname = "";
         year = -1;
         iq = -1;
-        schedule = new String[0][];
+        schedule = new HashMap<String, String>(0);
         family = null;
     }
 
@@ -31,35 +33,23 @@ class Human {
     }
 
 
-    private String[][] initSchedule() {
-        schedule = new String[7][2];
+    private Map<String, String> initSchedule() {
+        schedule = new HashMap<String, String>();
 
-        schedule[0][0] = DayOfWeek.SUNDAY.name();
-        schedule[0][1] = "";
+        schedule.put(DayOfWeek.SUNDAY.name(), "");
+        schedule.put(DayOfWeek.MONDAY.name(), "");
+        schedule.put(DayOfWeek.TUESDAY.name(), "");
+        schedule.put(DayOfWeek.WEDNESDAY.name(), "");
+        schedule.put(DayOfWeek.THURSDAY.name(), "");
+        schedule.put(DayOfWeek.FRIDAY.name(), "");
+        schedule.put(DayOfWeek.SATURDAY.name(), "");
 
-        schedule[1][0] = DayOfWeek.MONDAY.name();
-        schedule[1][1] = "";
-
-
-        schedule[2][0] = DayOfWeek.TUESDAY.name();
-        schedule[2][1] = "";
-
-
-        schedule[3][0] = DayOfWeek.WEDNESDAY.name();
-        schedule[3][1] = "";
-
-
-        schedule[4][0] = DayOfWeek.THURSDAY.name();
-        schedule[4][1] = "";
-
-
-        schedule[5][0] = DayOfWeek.FRIDAY.name();
-        schedule[5][1] = "";
-
-
-        schedule[6][0] = DayOfWeek.SATURDAY.name();
-        schedule[6][1] = "";
         return schedule;
+    }
+
+    Family setFamily(Family family) {
+        this.family = family;
+        return this.family;
     }
 
     Family getFamily() {
@@ -105,11 +95,11 @@ class Human {
     }
 
 
-    String[][] getSchedule() {
+    Map<String, String> getSchedule() {
         return schedule;
     }
 
-    String[][] setSchedule(DayOfWeek day, String todo) {
+    Map<String, String> setSchedule(DayOfWeek day, String todo) {
         int index;
         switch (day) {
             case SUNDAY:
@@ -138,7 +128,7 @@ class Human {
         }
 
         try {
-            schedule[index][1] = todo;
+            schedule.replace(String.valueOf(index), todo);
         } catch (Exception e) {
             System.out.println("You've entered wrong day");
         }
@@ -148,20 +138,19 @@ class Human {
 
 
     void greetPet() {
-        System.out.printf("Привет, %s \n", family.getPet().getNickname());
+        for (Pet pet : family.getPet()) {
+            System.out.printf("Привет, %s \n", pet.getNickname());
+        }
+
     }
 
 
-    String describePet() {
-        String trickLevel = family.getPet().getTrickLevel() > 50 ? "очень хитрый" : "почти не хитрый";
-        String description = String.format("У меня есть %s, ему %d лет, он %s ", family.getPet().getSpecies(), family.getPet().getAge(), trickLevel);
-        System.out.println(description);
-        return description;
-    }
-
-    Family setFamily(Family family) {
-        this.family = family;
-        return this.family;
+    void describePet() {
+        for (Pet pet : family.getPet()) {
+            String trickLevel = pet.getTrickLevel() > 50 ? "очень хитрый" : "почти не хитрый";
+            String description = String.format("У меня есть %s, ему %d лет, он %s ", pet.getSpecies(), pet.getAge(), trickLevel);
+            System.out.println(description);
+        }
     }
 
 

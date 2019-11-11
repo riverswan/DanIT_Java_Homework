@@ -8,8 +8,10 @@ final class Woman extends Human {
     @Override
     void greetPet() {
         try {
-            String info = String.format("Hi %s from Woman owner", getFamily().getPet().getSpecies().name());
-            System.out.println(info);
+            for (Pet pet : getFamily().getPet()) {
+                String info = String.format("Hi %s from Woman owner", pet.getSpecies().name());
+                System.out.println(info);
+            }
         } catch (Exception e) {
             System.out.println("You don't have a pet");
         }

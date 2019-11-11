@@ -1,26 +1,28 @@
 package com.homework_8;
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 abstract class Pet {
     private Species species;
     private String nickname;
     private int age;
     private int trickLevel;
-    private String[] habits;
+    private HashSet<String> habits;
     private String info;
 
     Pet(String nickname, int age, int trickLevel, String... habits) {
         this(nickname);
         this.age = age;
         this.trickLevel = trickLevel;
-        this.habits = habits;
+        this.habits = setHabits(habits);
     }
 
     Pet(String nickname) {
         this.nickname = nickname;
         this.species = Species.UNKNOWN;
     }
+
 
     public Species getSpecies() {
         return species;
@@ -55,12 +57,12 @@ abstract class Pet {
         return this.trickLevel = trickLevel;
     }
 
-    public String[] getHabits() {
+    public HashSet<String> getHabits() {
         return habits;
     }
 
-    public String[] setHabits(String... habits) {
-        return this.habits = habits;
+    public HashSet<String> setHabits(String... habits) {
+        return this.habits = new HashSet<String>(Arrays.asList(habits));
     }
 
 
@@ -73,7 +75,7 @@ abstract class Pet {
 
     @Override
     public String toString() {
-        info = String.format("%s{nickname='%s', age=%d, trickLevel=%d, habits=%s}", species, nickname, age, trickLevel, Arrays.toString(habits));
+        info = String.format("%s{nickname='%s', age=%d, trickLevel=%d, habits=%s}", species, nickname, age, trickLevel, Arrays.toString(habits.toArray()));
         return info;
     }
 

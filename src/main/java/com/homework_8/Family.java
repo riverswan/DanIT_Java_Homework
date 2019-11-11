@@ -1,14 +1,12 @@
 package com.homework_8;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Objects;
+import java.util.*;
 
 class Family {
     private Human mother;
     private Human father;
     private ArrayList<Human> children;
-    private Pet pet;
+    private HashSet<Pet> pet;
     private String info;
 
     Family(Human mother, Human father) {
@@ -16,7 +14,7 @@ class Family {
         this.father = father;
         this.mother.setFamily(Family.this);
         this.father.setFamily(Family.this);
-        pet = null;
+        pet = new HashSet<Pet>(0);
         children = new ArrayList<Human>(0);
         info = String.format("Mother:%s,\nFather:%s,\nChildren:%s,\nPet:%s",
                 Objects.toString(mother), Objects.toString(father), Arrays.toString(children.toArray()), Objects.toString(pet));
@@ -38,12 +36,12 @@ class Family {
     }
 
 
-    Pet getPet() {
+    Set<Pet> getPet() {
         return pet;
     }
 
     void setPet(Pet pet) {
-        this.pet = pet;
+        this.pet.add(pet);
     }
 
     ArrayList<Human> addChild(Human child) {
@@ -63,8 +61,7 @@ class Family {
     }
 
     int countFamily() {
-        int petCount = pet != null ? 1 : 0;
-        return 2 + children.size() + petCount;
+        return 2 + children.size() + pet.size();
     }
 
     @Override
