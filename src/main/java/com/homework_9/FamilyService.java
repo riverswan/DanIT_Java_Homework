@@ -63,15 +63,19 @@ public class FamilyService {
     Family bornChild(Family family, String manName, String girlName) {
         int randomValue = new Random().nextInt(1);
         String surname = family.getFather().getSurname();
-        int year = new GregorianCalendar().get(Calendar.YEAR);
+        int year = 2019;
+
         Man boy;
         Woman girl;
         switch (randomValue) {
             case 0:
                 girl = new Woman(girlName, surname, year);
+                family.addChild(girl);
                 break;
             case 1:
-                boy = new Man(manName,surname,year);
+                boy = new Man(manName, surname, year);
+                family.addChild(boy);
+                break;
 
         }
         return family;
