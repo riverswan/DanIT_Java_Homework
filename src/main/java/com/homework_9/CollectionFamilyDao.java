@@ -3,7 +3,7 @@ package com.homework_9;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CollectionFamilyDao implements FamilyDao {
+public final class CollectionFamilyDao implements FamilyDao {
 
     private List<Family> families = new ArrayList<>(0);
 
@@ -14,21 +14,49 @@ public class CollectionFamilyDao implements FamilyDao {
 
     @Override
     public Family getFamilyByIndex(int index) {
-        return null;
+        try {
+            return families.get(index);
+        } catch (Exception e) {
+            System.out.println("No family found " + e.getMessage());
+            return null;
+        }
     }
 
     @Override
     public boolean deleteFamily(int index) {
-        return false;
+        try {
+            families.remove(index);
+            return true;
+        } catch (Exception e) {
+            System.out.println("No family found " + e.getMessage());
+            return false;
+        }
     }
 
     @Override
     public boolean deleteFamily(Family family) {
+        int index = 0;
+        for (Family item : families) {
+            if (item.equals(family)) {
+                deleteFamily(index);
+                return true;
+            }
+            index++;
+        }
+
         return false;
+
     }
 
     @Override
     public void saveFamily(Family family) {
+        int index = 0;
+        for (Family item : families) {
+            if (item.equals(family)) {
+                families.set(index, family);
+            }
+        }
+
         families.add(family);
     }
 }

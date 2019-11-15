@@ -19,11 +19,23 @@ public class FamilyService {
     }
 
     List<Family> getFamiliesBiggerThan(int amount) {
-        throw new NoSuchMethodError();
+        List<Family> newFamilies;
+        newFamilies = getAllFamilies().stream()
+                .filter(family -> family.countFamily() > amount)
+                .collect(Collectors.toList());
+
+        System.out.printf("%d families where found \n", newFamilies.size());
+        return newFamilies;
     }
 
     List<Family> getFamiliesLessThan(int amount) {
-        throw new NoSuchMethodError();
+        List<Family> newFamilies;
+        newFamilies = getAllFamilies().stream()
+                .filter(family -> family.countFamily() < amount)
+                .collect(Collectors.toList());
+
+        System.out.printf("%d families where found \n", newFamilies.size());
+        return newFamilies;
     }
 
     List<Family> countFamiliesWithMemberNumber(int amount) {

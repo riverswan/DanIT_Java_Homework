@@ -26,6 +26,10 @@ class Main {
 
         FamilyController familyController = new FamilyController();
         familyController.createNewFamily(mother1,father1);
+        familyController.createNewFamily(mother2,father2);
+        familyController.createNewFamily(mother3,father3);
         familyController.displayAllFamilies();
+        familyController.getFamiliesBiggerThan(0);
+        familyController.getFamiliesLessThan(1);
     }
 }

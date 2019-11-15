@@ -20,10 +20,10 @@ public class FamilyController {
     public List<Family> getFamiliesBiggerThan(int i) {
         return familyService.getFamiliesBiggerThan(i);
     }
-//
-//    public List<Family> getFamiliesLessThan(int i) {
-//        return familyService.getFamiliesLessThan(i);
-//    }
+
+    public List<Family> getFamiliesLessThan(int i) {
+        return familyService.getFamiliesLessThan(i);
+    }
 //
 //    public int countFamiliesWithMemberNumber(int i) {
 //        return familyService.countFamiliesWithMemberNumber(i);
