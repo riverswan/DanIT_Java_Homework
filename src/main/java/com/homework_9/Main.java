@@ -32,5 +32,7 @@ class Main {
         familyController.getFamiliesBiggerThan(0);
         familyController.getFamiliesLessThan(4);
         familyController.countFamiliesWithMemberNumber(2);
+        familyController.deleteFamilyByIndex(2);
+        familyController.displayAllFamilies();
     }
 }

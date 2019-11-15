@@ -2,6 +2,7 @@ package com.homework_9;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.time.*;
 
 public class FamilyService {
     private FamilyDao familyDao;
@@ -56,12 +57,26 @@ public class FamilyService {
     }
 
     void deleteFamilyByIndex(int index) {
-        throw new NoSuchMethodError();
+        familyDao.deleteFamily(index);
     }
 
-    void bornChild(Family family, String name) {
-        throw new NoSuchMethodError();
+    Family bornChild(Family family, String manName, String girlName) {
+        int randomValue = new Random().nextInt(1);
+        String surname = family.getFather().getSurname();
+        int year = new GregorianCalendar().get(Calendar.YEAR);
+        Man boy;
+        Woman girl;
+        switch (randomValue) {
+            case 0:
+                girl = new Woman(girlName, surname, year);
+                break;
+            case 1:
+                boy = new Man(manName,surname,year);
+
+        }
+        return family;
     }
+
 
     void adoptChild(Family family, Human child) {
         throw new NoSuchMethodError();

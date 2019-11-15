@@ -32,14 +32,14 @@ public class FamilyController {
     public Family createNewFamily(Human mother, Human father) {
         return familyService.createNewFamily(mother, father);
     }
-//
-//    public void deleteFamilyByIndex(int i) {
-//        familyService.deleteFamilyByIndex(i);
-//    }
-//
-//    public Family bornChild(Family family, String manName, String womanName) {
-//        return familyService.bornChild(family, manName, womanName);
-//    }
+
+    public void deleteFamilyByIndex(int i) {
+        familyService.deleteFamilyByIndex(i);
+    }
+
+    public Family bornChild(Family family, String manName, String womanName) {
+        return familyService.bornChild(family, manName, womanName);
+    }
 //
 //    public Family adoptChild(Family family, Human child) {
 //        return familyService.adoptChild(family, child);
