@@ -38,8 +38,15 @@ public class FamilyService {
         return newFamilies;
     }
 
-    List<Family> countFamiliesWithMemberNumber(int amount) {
-        throw new NoSuchMethodError();
+    int countFamiliesWithMemberNumber(int amount) {
+        List<Family> newFamilies;
+        newFamilies = getAllFamilies().stream()
+                .filter(family -> family.countFamily() == amount)
+                .collect(Collectors.toList());
+
+        System.out.printf("%d families where found \n", newFamilies.size());
+        return newFamilies.size();
+
     }
 
     Family createNewFamily(Human mother, Human father) {

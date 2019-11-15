@@ -30,6 +30,7 @@ class Main {
         familyController.createNewFamily(mother3,father3);
         familyController.displayAllFamilies();
         familyController.getFamiliesBiggerThan(0);
-        familyController.getFamiliesLessThan(1);
+        familyController.getFamiliesLessThan(4);
+        familyController.countFamiliesWithMemberNumber(2);
     }
 }

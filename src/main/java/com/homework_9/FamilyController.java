@@ -24,11 +24,11 @@ public class FamilyController {
     public List<Family> getFamiliesLessThan(int i) {
         return familyService.getFamiliesLessThan(i);
     }
-//
-//    public int countFamiliesWithMemberNumber(int i) {
-//        return familyService.countFamiliesWithMemberNumber(i);
-//    }
-//
+
+    public int countFamiliesWithMemberNumber(int i) {
+        return familyService.countFamiliesWithMemberNumber(i);
+    }
+
     public Family createNewFamily(Human mother, Human father) {
         return familyService.createNewFamily(mother, father);
     }
