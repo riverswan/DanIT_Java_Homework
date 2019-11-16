@@ -12,6 +12,11 @@ class Main {
         Human father3 = new Man("Father3", "Surname1", 1970);
 
 
+        Human adoptedSon1 = new Man("Adopted_1", "Surname1", 1970);
+        Human adoptedSon2 = new Man("Adopted_2", "Surname1", 1970);
+        Human adoptedSon3 = new Man("Adopted_3", "Surname1", 1970);
+
+
         FamilyController familyController = new FamilyController();
         Family family1 = familyController.createNewFamily(mother1, father1);
         Family family2 = familyController.createNewFamily(mother2, father2);
@@ -26,5 +31,22 @@ class Main {
         familyController.bornChild(family1, "ManChildFamily_1_child_2", "WomanChildFamily_1_child_2");
 
         familyController.displayAllFamilies();
+
+        familyController.getFamiliesBiggerThan(3);
+
+        familyController.getFamiliesLessThan(3);
+
+        familyController.countFamiliesWithMemberNumber(4);
+
+        familyController.adoptChild(family1,adoptedSon1);
+        familyController.adoptChild(family1,adoptedSon2);
+        familyController.adoptChild(family1,adoptedSon3);
+
+        familyController.displayAllFamilies();
+
+        familyController.deleteAllChildrenOlderThen(10);
+
+        familyController.displayAllFamilies();
+
     }
 }

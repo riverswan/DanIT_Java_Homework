@@ -88,19 +88,16 @@ public class FamilyService {
     Family adoptChild(Family family, Human child) {
         family.addChild(child);
         familyDao.saveFamily(family);
+        System.out.println("One child was adopted");
         return family;
     }
 
 
     void deleteAllChildrenOlderThen(int age) {
-        for (Family item : getAllFamilies()) {
-            for (Human child : item.getChildren()) {
-                if (child.getAge() > age) {
-                    item.deleteChild(child);
-                    familyDao.saveFamily(item);
-                }
-            }
-        }
+        getAllFamilies().forEach(item -> {
+            item.getChildren().removeIf(b -> b.getAge() > age);
+            familyDao.saveFamily(item);
+        });
     }
 
 
