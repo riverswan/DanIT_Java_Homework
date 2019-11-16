@@ -65,7 +65,7 @@ public class FamilyService {
     Family bornChild(Family family, String manName, String girlName) {
         int randomValue = new Random().nextInt(2);
         String surname = family.getFather().getSurname();
-        int year = 2019;
+        int year = Calendar.getInstance().get(Calendar.YEAR);
         Man boy;
         Woman girl;
 
@@ -95,7 +95,7 @@ public class FamilyService {
 
     void deleteAllChildrenOlderThen(int age) {
         getAllFamilies().forEach(item -> {
-            item.getChildren().removeIf(b -> b.getAge() > age);
+            item.getChildren().removeIf(child -> child.getAge() > age);
             familyDao.saveFamily(item);
         });
     }

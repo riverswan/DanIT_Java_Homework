@@ -48,5 +48,17 @@ class Main {
 
         familyController.displayAllFamilies();
 
+        System.out.println(familyController.count());
+
+        System.out.println(familyController.getFamilyById(2));
+
+        System.out.println(familyController.getPets(0));
+
+        familyController.getFamiliesBiggerThan(-1);
+
+        familyController.deleteFamilyByIndex(1);
+
+        familyController.displayAllFamilies();
+
     }
 }
