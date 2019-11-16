@@ -1,5 +1,7 @@
 package com.homework_9;
 
+import java.time.Year;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,6 +13,7 @@ class Human {
     private Family family;
     private String info;
     private Map<String, String> schedule = initSchedule();
+    private int age;
 
     Human() {
         name = "";
@@ -19,12 +22,14 @@ class Human {
         iq = -1;
         schedule = new HashMap<String, String>(0);
         family = null;
+        age = -1;
     }
 
     Human(String name, String surname, int year) {
         this.name = name;
         this.surname = surname;
         this.year = year;
+        this.age = setAge();
     }
 
     Human(String name, String surname, int year, int iq) {
@@ -78,6 +83,15 @@ class Human {
 
     int getYear() {
         return year;
+    }
+
+    int setAge() {
+        int yearNow = Calendar.getInstance().get(Calendar.YEAR);
+        return age = yearNow - year;
+    }
+
+    int getAge(){
+        return age;
     }
 
     int setYear(int year) {

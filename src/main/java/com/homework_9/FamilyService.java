@@ -16,7 +16,9 @@ public class FamilyService {
     }
 
     void displayAllFamilies() {
+        System.out.println("----Displaying families----");
         familyDao.getAllFamilies().forEach(System.out::println);
+        System.out.println("---------------------------");
     }
 
     List<Family> getFamiliesBiggerThan(int amount) {
@@ -61,12 +63,12 @@ public class FamilyService {
     }
 
     Family bornChild(Family family, String manName, String girlName) {
-        int randomValue = new Random().nextInt(1);
+        int randomValue = new Random().nextInt(2);
         String surname = family.getFather().getSurname();
         int year = 2019;
-
         Man boy;
         Woman girl;
+
         switch (randomValue) {
             case 0:
                 girl = new Woman(girlName, surname, year);
@@ -78,36 +80,44 @@ public class FamilyService {
                 break;
 
         }
+        familyDao.saveFamily(family);
         return family;
     }
 
 
-    void adoptChild(Family family, Human child) {
-        throw new NoSuchMethodError();
+    Family adoptChild(Family family, Human child) {
+        family.addChild(child);
+        familyDao.saveFamily(family);
+        return family;
     }
 
 
     void deleteAllChildrenOlderThen(int age) {
-        throw new NoSuchMethodError();
+        for (Family item : getAllFamilies()) {
+            for (Human child : item.getChildren()) {
+                if (child.getAge() > age) {
+                    item.deleteChild(child);
+                    familyDao.saveFamily(item);
+                }
+            }
+        }
     }
 
 
     int count() {
-        throw new NoSuchMethodError();
+        return getAllFamilies().size();
     }
 
 
     Family getFamilyById(int index) {
-        throw new NoSuchMethodError();
+        return getAllFamilies().get(index);
     }
 
-    Set<Pet> getPets(Family family) {
-        throw new NoSuchMethodError();
+    Set<Pet> getPets(int index) {
+        return getFamilyById(index).getPet();
     }
 
     void addPet(int index, Pet pet) {
-
+        getFamilyById(index).setPet(pet);
     }
-
-
 }

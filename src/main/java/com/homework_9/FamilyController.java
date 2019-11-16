@@ -8,7 +8,7 @@ public class FamilyController {
     public FamilyController() {
         this.familyService = new FamilyService();
     }
-//
+
     public List<Family> getAllFamilies() {
         return familyService.getAllFamilies();
     }
@@ -40,28 +40,28 @@ public class FamilyController {
     public Family bornChild(Family family, String manName, String womanName) {
         return familyService.bornChild(family, manName, womanName);
     }
-//
-//    public Family adoptChild(Family family, Human child) {
-//        return familyService.adoptChild(family, child);
-//    }
-//
-//    public void deleteAllChildrenOlderThen(int age) {
-//        familyService.deleteAllChildrenOlderThen(age);
-//    }
-//
-//    public int count() {
-//        return familyService.count();
-//    }
-//
-//    public Family getFamilyById(int i) {
-//        return familyService.getFamilyById(i);
-//    }
-//
-//    Set<Pet> getPets(int i) {
-//        return familyService.getPets(i);
-//    }
-//
-//    public void addPet(int i, Pet pet) {
-//        familyService.addPet(i, pet);
-//    }
+
+    public Family adoptChild(Family family, Human child) {
+        return familyService.adoptChild(family, child);
+    }
+
+    public void deleteAllChildrenOlderThen(int age) {
+        familyService.deleteAllChildrenOlderThen(age);
+    }
+
+    public int count() {
+        return familyService.count();
+    }
+
+    public Family getFamilyById(int i) {
+        return familyService.getFamilyById(i);
+    }
+
+    Set<Pet> getPets(int i) {
+        return familyService.getPets(i);
+    }
+
+    public void addPet(int i, Pet pet) {
+        familyService.addPet(i, pet);
+    }
 }

@@ -7,7 +7,6 @@ class Family {
     private Human father;
     private ArrayList<Human> children;
     private HashSet<Pet> pet;
-    private String info;
 
     Family(Human mother, Human father) {
         this.mother = mother;
@@ -16,9 +15,11 @@ class Family {
         this.father.setFamily(Family.this);
         pet = new HashSet<Pet>(0);
         children = new ArrayList<Human>(0);
-        info = String.format("Mother:%s,\nFather:%s,\nChildren:%s,\nPet:%s",
-                Objects.toString(mother), Objects.toString(father), Arrays.toString(children.toArray()), Objects.toString(pet));
+    }
 
+    private String getInfo() {
+        return String.format("Mother:%s,\nFather:%s,\nChildren:%s,\nPet:%s",
+                Objects.toString(mother), Objects.toString(father), children, pet);
     }
 
     Human getMother() {
@@ -60,18 +61,30 @@ class Family {
         }
     }
 
+    ArrayList<Human> deleteChild(Human child) {
+        int index = 0;
+        for (Human item : children) {
+            if (item.equals(child)) {
+                deleteChild(index);
+            }
+            index++;
+        }
+
+        return children;
+    }
+
     int countFamily() {
         return 2 + children.size() + pet.size();
     }
 
     @Override
     public String toString() {
-        return info;
+        return getInfo();
     }
 
 
     @Override
     protected void finalize() throws Throwable {
-        System.out.printf("Family object is deleted: %s \n", info);
+        System.out.printf("Family object is deleted: %s \n", getInfo());
     }
 }

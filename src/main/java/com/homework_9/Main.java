@@ -11,28 +11,20 @@ class Main {
         Human father2 = new Man("Father2", "Surname1", 1970);
         Human father3 = new Man("Father3", "Surname1", 1970);
 
-        Human son1 = new Man("Son1", "Surname1", 1970);
-        Human son2 = new Man("Son2", "Surname1", 1970);
-        Human son3 = new Man("Son3", "Surname1", 1970);
-
-        Family family1 = new Family(mother1, father1);
-        family1.addChild(son1);
-        family1.addChild(son2);
-        family1.addChild(son3);
-
-
-        Family family2 = new Family(mother2, father2);
-        Family family3 = new Family(mother3, father3);
 
         FamilyController familyController = new FamilyController();
-        familyController.createNewFamily(mother1,father1);
-        familyController.createNewFamily(mother2,father2);
-        familyController.createNewFamily(mother3,father3);
+        Family family1 = familyController.createNewFamily(mother1, father1);
+        Family family2 = familyController.createNewFamily(mother2, father2);
+        Family family3 = familyController.createNewFamily(mother3, father3);
+
         familyController.displayAllFamilies();
-        familyController.getFamiliesBiggerThan(0);
-        familyController.getFamiliesLessThan(4);
-        familyController.countFamiliesWithMemberNumber(2);
-        familyController.deleteFamilyByIndex(2);
+
+        familyController.bornChild(family1, "ManChildFamily_1", "WomanChildFamily_1");
+
+        familyController.displayAllFamilies();
+
+        familyController.bornChild(family1, "ManChildFamily_1_child_2", "WomanChildFamily_1_child_2");
+
         familyController.displayAllFamilies();
     }
 }

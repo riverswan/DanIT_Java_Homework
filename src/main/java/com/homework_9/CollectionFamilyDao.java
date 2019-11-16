@@ -54,9 +54,12 @@ public final class CollectionFamilyDao implements FamilyDao {
         for (Family item : families) {
             if (item.equals(family)) {
                 families.set(index, family);
+                System.out.println("One family was updated");
+                return;
             }
+            index++;
         }
-
         families.add(family);
+        System.out.println("One family was added");
     }
 }
