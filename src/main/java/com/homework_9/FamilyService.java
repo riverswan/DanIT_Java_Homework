@@ -2,16 +2,15 @@ package com.homework_9;
 
 import java.util.*;
 import java.util.stream.Collectors;
-import java.time.*;
 
-public class FamilyService {
+class FamilyService {
     private FamilyDao familyDao;
 
     FamilyService() {
         this.familyDao = new CollectionFamilyDao();
     }
 
-    public List<Family> getAllFamilies() {
+    List<Family> getAllFamilies() {
         return familyDao.getAllFamilies();
     }
 
