@@ -62,4 +62,9 @@ public final class CollectionFamilyDao implements FamilyDao {
         families.add(family);
         System.out.println("One family was added");
     }
+
+    @Override
+    public void deleteAllFamilies(){
+        families.clear();
+    }
 }

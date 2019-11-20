@@ -37,6 +37,10 @@ public class FamilyController {
         familyService.deleteFamilyByIndex(i);
     }
 
+    public void deleteAllFamilies() {
+        familyService.deleteAllFamilies();
+    }
+
     public Family bornChild(Family family, String manName, String womanName) {
         return familyService.bornChild(family, manName, womanName);
     }

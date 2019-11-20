@@ -10,27 +10,39 @@ import static org.junit.jupiter.api.Assertions.*;
 class FamilyServiceTest {
 
 
-    Human mother1 = new Woman("Woman1", "Surname1", 1970);
-    Human mother2 = new Woman("Woman2", "Surname2", 1970);
-    Human mother3 = new Woman("Woman3", "Surname3", 1970);
+    Human mother1;
+    Human mother2;
+    Human mother3;
 
 
-    Human father1 = new Man("Father1", "Surname1", 1970);
-    Human father2 = new Man("Father2", "Surname2", 1970);
-    Human father3 = new Man("Father3", "Surname3", 1970);
+    Human father1;
+    Human father2;
+    Human father3;
 
 
-    Human adoptedSon1 = new Man("Adopted_1", "Surname1", 1970);
-    Human adoptedSon2 = new Man("Adopted_2", "Surname1", 1970);
-    Human adoptedSon3 = new Man("Adopted_3", "Surname1", 1970);
+    Human adoptedSon1;
+    Human adoptedSon2;
+    Human adoptedSon3;
     FamilyController familyController = new FamilyController();
-    Family family1 = familyController.createNewFamily(mother1, father1);
-    Family family2 = familyController.createNewFamily(mother2, father2);
-    Family family3 = familyController.createNewFamily(mother3, father3);
+    Family family1;
+    Family family2;
+    Family family3;
 
 
-    @BeforeAll
+    @BeforeEach
     void setUp() {
+        mother1 = new Woman("Woman1", "Surname1", 1970);
+        mother2 = new Woman("Woman2", "Surname2", 1970);
+        mother3 = new Woman("Woman3", "Surname3", 1970);
+        father1 = new Man("Father1", "Surname1", 1970);
+        father2 = new Man("Father2", "Surname2", 1970);
+        father3 = new Man("Father3", "Surname3", 1970);
+        adoptedSon1 = new Man("Adopted_1", "Surname1", 1970);
+        adoptedSon2 = new Man("Adopted_2", "Surname1", 1970);
+        adoptedSon3 = new Man("Adopted_3", "Surname1", 1970);
+        family1 = familyController.createNewFamily(mother1, father1);
+        family2 = familyController.createNewFamily(mother2, father2);
+        family3 = familyController.createNewFamily(mother3, father3);
         familyController.bornChild(family1, "Boyname_Family1", "GirlName_Family1");
         familyController.bornChild(family2, "Boyname_Family2", "GirlName_Family2");
         familyController.bornChild(family3, "Boyname_Family3", "GirlName_Family3");
@@ -40,16 +52,20 @@ class FamilyServiceTest {
         familyController.displayAllFamilies();
     }
 
+    @AfterEach
+    void tearDown() {
+        familyController.deleteAllFamilies();
+    }
+
 
     @Test
     void getAllFamilies() {
         assertEquals(3, familyController.getAllFamilies().size());
     }
 
-
     @Test
     void getFamiliesBiggerThan() {
-        assertEquals(2, familyController.getFamiliesBiggerThan(2).size());
+        assertEquals(3, familyController.getFamiliesBiggerThan(2).size());
     }
 
     @Test
@@ -70,8 +86,8 @@ class FamilyServiceTest {
     @Test
     void deleteFamilyByIndex() {
         int familiesCountBefore = familyController.getAllFamilies().size();
-        familyController.deleteFamilyByIndex(1);
-        assertEquals(familiesCountBefore -1, familyController.getAllFamilies().size());
+        familyController.deleteFamilyByIndex(2);
+        assertEquals(familiesCountBefore - 1, familyController.getAllFamilies().size());
     }
 
     @Test
@@ -91,7 +107,7 @@ class FamilyServiceTest {
     @Test
     void deleteAllChildrenOlderThen() {
         int amountBeforeDeleting = 0;
-        int amountDeleted = 2;
+        int amountDeleted = 3;
         int amountAfterDeleting = 0;
         for (Family family : familyController.getAllFamilies()) {
             amountBeforeDeleting += family.getChildren().size();
@@ -104,19 +120,21 @@ class FamilyServiceTest {
         }
 
         assertEquals(amountDeleted, amountBeforeDeleting - amountAfterDeleting);
-
-
     }
 
     @Test
     void count() {
+        Family newFamily = familyController.createNewFamily(mother1, father3);
+        assertEquals(4, familyController.getAllFamilies().size());
     }
 
     @Test
     void getFamilyById() {
+        assertEquals(family1,familyController.getFamilyById(0));
     }
 
     @Test
     void getPets() {
+        assertEquals(0,familyController.getPets(0).size());
     }
 }

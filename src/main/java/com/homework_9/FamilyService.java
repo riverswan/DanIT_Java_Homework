@@ -99,6 +99,10 @@ class FamilyService {
         });
     }
 
+    void deleteAllFamilies(){
+        familyDao.deleteAllFamilies();
+    }
+
 
     int count() {
         return getAllFamilies().size();
